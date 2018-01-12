@@ -15,6 +15,8 @@ cc_emails   list
 bcc_emails  list
 
 ------------------------------------------"""
+
+
 def send_email(
         subject, body_text, to_emails,
         cc_emails, bcc_emails):
@@ -40,14 +42,14 @@ def send_email(
     from_addr = cfg_dict["from_addr"]
 
     BODY = "\r\n".join((
-                    "From: {}".format(from_addr),
-                    "To: {}".format(", ".join(to_emails)),
-                    "CC: {}".format(", ".join(cc_emails)),
-                    "BCC: {}".format(", ".join(bcc_emails)),
-                    "Subject: {}".format(subject),
-                    "",
-                    body_text
-                    ))
+        "From: {}".format(from_addr),
+        "To: {}".format(", ".join(to_emails)),
+        "CC: {}".format(", ".join(cc_emails)),
+        "BCC: {}".format(", ".join(bcc_emails)),
+        "Subject: {}".format(subject),
+        "",
+        body_text
+    ))
     emails = to_emails + cc_emails + bcc_emails
 
     server = smtplib.SMTP(host, port)
@@ -58,9 +60,10 @@ def send_email(
     try:
         server.sendmail(from_addr, emails, BODY)
         print("email sent")
-    except:
+    except Exception:
         print("error sending mail")
     server.quit()
+
 
 """------------------------------------------
 Program start

@@ -1,6 +1,5 @@
 import os
 import smtplib
-import string
 import sys
 
 from configobj import ConfigObj
@@ -19,6 +18,8 @@ body_text str
 emails list
 
 ------------------------------------------"""
+
+
 def send_email_with_attachment(subject,
                                body_text,
                                to_emails,
@@ -33,9 +34,9 @@ def send_email_with_attachment(subject,
     # path/config.ini
     config_path = os.path.join(base_path, "config.ini")
     header = (
-              "Content-Disposition",
-              "attachment; filename= {}".format(file_to_attach)
-             )
+        "Content-Disposition",
+        "attachment; filename= {}".format(file_to_attach)
+    )
 
     # get the config
     if os.path.exists(config_path):
@@ -87,10 +88,12 @@ def send_email_with_attachment(subject,
     try:
         server.sendmail(from_addr, emails, msg.as_string())
         print("email sent")
-    except:
+    except Exception:
         print("error sending mail")
+        raise
 
     server.quit()
+
 
 """------------------------------------------
 Program start
@@ -102,8 +105,10 @@ if __name__ == "__main__":
     subject = "Test email with attachment from Python"
     body_text = "This email contains an attachment!"
     path = os.path.join(
-                        os.path.dirname(os.path.abspath(__file__)),
-                        "logo.png"
-                       )
+        os.path.dirname(os.path.abspath(__file__)),
+        "logo.png"
+    )
     print(path)
-    send_email_with_attachment(subject, body_text, to_emails, cc_emails, bcc_emails, path)
+    send_email_with_attachment(
+        subject, body_text, to_emails,
+        cc_emails, bcc_emails, path)

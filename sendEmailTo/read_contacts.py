@@ -1,13 +1,12 @@
 
-"""---------------------------------------------------
-Function to read the contacts from a given contact
-file and return a list of names and email addresses
+# Function to read the contacts from a given contact
+# file and return a list of names and email addresses
+#
+# return:
+# names list
+# emails list
 
-return:
-names list
-emails list
 
----------------------------------------------------"""
 def get_contacts(
         filename):
     names = []
