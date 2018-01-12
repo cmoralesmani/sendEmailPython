@@ -8,12 +8,16 @@ from configobj import ConfigObj
 Send Email
 
 Params:
-subject str
-body_text str
-emails list
+subject     str
+body_text   str
+to_emails   list
+cc_emails   list
+bcc_emails  list
 
 ------------------------------------------"""
-def send_email(subject, body_text, to_emails, cc_emails, bcc_emails):
+def send_email(
+        subject, body_text, to_emails,
+        cc_emails, bcc_emails):
     """
     Send an email
     """

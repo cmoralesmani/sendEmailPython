@@ -1,0 +1,5 @@
+server = smtp.gmail.com
+port = 587
+user =
+password =
+from_addr =
