@@ -1,5 +1,5 @@
-server = smtp.gmail.com
+server = smtp.live.com
 port = 587
-user = <user-@gmail.com>
+user = <user-@hotmail.com>
 password = <password>
 from_addr = <email_from_addr>

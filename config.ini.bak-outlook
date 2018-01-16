@@ -1,5 +1,0 @@
-server = smtp-mail.outlook.com
-port = 587
-user =
-password =
-from_addr =
