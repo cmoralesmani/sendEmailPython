@@ -1,14 +1,9 @@
-
-# Function to read the contacts from a given contact
-# file and return a list of names and email addresses
-#
-# return:
-# names list
-# emails list
-
-
 def get_contacts(
         filename):
+    """
+    Return two lists names, emails containing names and email addresses
+    read from a file specified by filename
+    """
     names = []
     emails = []
     with open(filename, mode='r', encoding='utf-8') as contacts_file:
